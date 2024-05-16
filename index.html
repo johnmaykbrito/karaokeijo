@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seletor de Música Aleatória</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Seletor de Música Aleatória</h1>
+      <div>
+        <button onclick="selectRandomSong('80s')">Anos 80</button>
+        <button onclick="selectRandomSong('90s')">Anos 90</button>
+        <button onclick="selectRandomSong('2000s')">Anos 2000</button>
+        <button onclick="selectRandomSong('2010s')">Anos 2010</button>
+        <button onclick="selectRandomSong('2020s')">Anos 2020</button>
+        <button onclick="selectRandomSong('Surpresa')">Surpresa</button>
+      </div>
+      <h2>Gêneros</h2>
+      <div>
+        <button onclick="selectRandomSong('Rock')">Rock</button>
+        <button onclick="selectRandomSong('Pop')">Pop</button>
+        <button onclick="selectRandomSong('Hip Hop')">Hip Hop</button>
+        <button onclick="selectRandomSong('R&B')">R&B</button>
+        <button onclick="selectRandomSong('Country')">Country</button>
+        <button onclick="selectRandomSong('Eletrônica')">Eletrônica</button>
+        <button onclick="selectRandomSong('Jazz')">Jazz</button>
+        <button onclick="selectRandomSong('Clássica')">Clássica</button>
+        <button onclick="selectRandomSong('Reggae')">Reggae</button>
+        <button onclick="selectRandomSong('Metal')">Metal</button>
+      </div>
+      <h2>Gêneros Brasileiros</h2>
+      <div>
+        <button onclick="selectRandomSong('Samba')">Samba</button>
+        <button onclick="selectRandomSong('Bossa Nova')">Bossa Nova</button>
+        <button onclick="selectRandomSong('Forró')">Forró</button>
+        <button onclick="selectRandomSong('Funk Carioca')">Funk Carioca</button>
+        <button onclick="selectRandomSong('Axé')">Axé</button>
+        <button onclick="selectRandomSong('Sertanejo 80s')">
+          Sertanejo 80s
+        </button>
+        <button onclick="selectRandomSong('Sertanejo 90s')">
+          Sertanejo 90s
+        </button>
+        <button onclick="selectRandomSong('Frevo')">Frevo</button>
+        <button onclick="selectRandomSong('Forró Pé de Serra')">
+          Forró Pé de Serra
+        </button>
+      </div>
+      <div id="selectedSong"></div>
+      <div id="loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
