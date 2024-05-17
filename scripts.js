@@ -1,409 +1,64 @@
-const topSongsByDecade = {
-  '80s': [
-    "Michael Jackson - Billie Jean",
-    "Madonna - Like a Virgin",
-    "Prince - When Doves Cry",
-    "Whitney Houston - I Wanna Dance with Somebody",
-    "Cyndi Lauper - Girls Just Want to Have Fun",
-    "Bon Jovi - Livin' on a Prayer",
-    "Guns N' Roses - Sweet Child o' Mine",
-    "AC/DC - You Shook Me All Night Long",
-    "Duran Duran - Hungry Like the Wolf",
-    "Queen - Another One Bites the Dust",
-    "U2 - With or Without You",
-    "The Police - Every Breath You Take",
-    "Journey - Don't Stop Believin'",
-    "Toto - Africa",
-    "Billy Joel - Uptown Girl",
-    "George Michael - Faith",
-    "The Clash - Should I Stay or Should I Go",
-    "David Bowie - Let's Dance",
-    "The Cure - Just Like Heaven",
-    "Depeche Mode - Just Can't Get Enough",
-    "Eurythmics - Sweet Dreams (Are Made of This)",
-    "INXS - Need You Tonight",
-    "Blondie - Call Me",
-    "Rick Astley - Never Gonna Give You Up",
-    "Van Halen - Jump",
-    "Simple Minds - Don't You (Forget About Me)",
-    "Europe - The Final Countdown",
-    "A-ha - Take On Me",
-    "Pet Shop Boys - West End Girls",
-    "Michael Jackson - Thriller",
-    "Bon Jovi - Wanted Dead or Alive",
-    "Madonna - Material Girl",
-    "Prince - Purple Rain",
-    "Whitney Houston - How Will I Know",
-    "Cyndi Lauper - Time After Time",
-    "Survivor - Eye of the Tiger",
-    "AC/DC - Back in Black",
-    "Guns N' Roses - Welcome to the Jungle",
-    "Queen - Radio Ga Ga",
-    "U2 - Sunday Bloody Sunday",
-    "The Police - Roxanne",
-    "Journey - Faithfully",
-    "Toto - Rosanna",
-    "Billy Joel - We Didn't Start the Fire",
-    "George Michael - Careless Whisper",
-    "The Clash - London Calling",
-    "David Bowie - Ashes to Ashes",
-    "The Cure - Lovesong",
-    "Depeche Mode - Enjoy the Silence",
-    "Eurythmics - Here Comes the Rain Again",
-    "INXS - New Sensation",
-    "Blondie - Heart of Glass",
-    "Rick Astley - Together Forever",
-    "Van Halen - Panama",
-    "Simple Minds - Alive and Kicking",
-    "Europe - Carrie",
-    "A-ha - The Sun Always Shines on T.V.",
-    "Pet Shop Boys - It's a Sin",
-    "Michael Jackson - Beat It",
-    "Bon Jovi - You Give Love a Bad Name",
-    "Madonna - Papa Don't Preach",
-    "Prince - Kiss",
-    "Whitney Houston - Saving All My Love for You",
-    "Cyndi Lauper - True Colors",
-    "Survivor - Burning Heart",
-    "AC/DC - Highway to Hell",
-    "Guns N' Roses - Paradise City",
-    "Queen - Under Pressure",
-    "U2 - I Still Haven't Found What I'm Looking For",
-    "The Police - Message in a Bottle",
-    "Journey - Separate Ways (Worlds Apart)",
-    "Toto - Hold the Line",
-    "Billy Joel - Piano Man",
-    "George Michael - Father Figure",
-    "The Clash - Rock the Casbah",
-    "David Bowie - Modern Love",
-    "The Cure - Boys Don't Cry",
-    "Depeche Mode - Personal Jesus",
-    "Eurythmics - Love Is a Stranger",
-    "INXS - Never Tear Us Apart",
-    "Blondie - Rapture",
-    "Rick Astley - It Would Take a Strong Strong Man",
-    "Van Halen - Why Can't This Be Love",
-    "Simple Minds - Don't You Forget About Me",
-    "Europe - Cherokee",
-    "A-ha - Hunting High and Low",
-    "Pet Shop Boys - Always on My Mind",
-    "Michael Jackson - Smooth Criminal",
-    "Bon Jovi - I'll Be There for You",
-    "Madonna - Crazy for You",
-    "Prince - Little Red Corvette",
-    "Whitney Houston - Greatest Love of All",
-    "Cyndi Lauper - She Bop",
-    "Survivor - The Search Is Over",
-    "AC/DC - Thunderstruck",
-    "Guns N' Roses - Patience",
-    "Queen - Crazy Little Thing Called Love",
-    "U2 - Pride (In the Name of Love)",
-    "The Police - Every Little Thing She Does Is Magic",
-    "Journey - Open Arms",
-    "Toto - I'll Be Over You",
-    "Billy Joel - The Longest Time",
-    "George Michael - One More Try",
-    "The Clash - Train in Vain",
-    "David Bowie - Heroes",
-    "The Cure - Friday I'm in Love",
-    "Depeche Mode - Policy of Truth",
-    "Eurythmics - There Must Be an Angel (Playing with My Heart)",
-    "INXS - Devil Inside",
-    "Blondie - The Tide Is High",
-    "Rick Astley - Whenever You Need Somebody",
-    "Van Halen - Jump",
-    "Simple Minds - Promised You a Miracle",
-    "Europe - Rock the Night",
-    "A-ha - Crying in the Rain",
-    "Pet Shop Boys - Opportunities (Let's Make Lots of Money)",
-    "Michael Jackson - Bad",
-    "Bon Jovi - Wanted Dead or Alive",
-    "Madonna - Into the Groove",
-    "Prince - 1999",
-    "Whitney Houston - How Will I Know",
-    "Cyndi Lauper - All Through the Night",
-    "Survivor - High on You",
-    "AC/DC - Hells Bells",
-    "Guns N' Roses - November Rain",
-    "Queen - We Will Rock You",
-    "U2 - Where the Streets Have No Name",
-    "The Police - Don't Stand So Close to Me",
-    "Journey - Wheel in the Sky",
-    "Toto - Pamela",
-    "Billy Joel - Just the Way You Are",
-    "George Michael - Kissing a Fool",
-    "The Clash - Should I Stay or Should I Go",
-    "David Bowie - China Girl",
-    "The Cure - In Between Days",
-    "Depeche Mode - Strangelove",
-    "Eurythmics - Who's That Girl?",
-    "INXS - Suicide Blonde",
-    "Blondie - Atomic",
-    "Rick Astley - She Wants to Dance with Me",
-    "Van Halen - Dreams",
-    "Simple Minds - Sanctify Yourself",
-    "Europe - The Final Countdown",
-    "A-ha - Manhattan Skyline",
-    "Pet Shop Boys - Domino Dancing",
-    "Michael Jackson - The Way You Make Me Feel",
-    "Bon Jovi - Lay Your Hands on Me",
-    "Madonna - Like a Prayer",
-    "Prince - Sign o' the Times",
-    "Whitney Houston - So Emotional",
-    "Cyndi Lauper - Money Changes Everything",
-    "Survivor - Is This Love",
-    "AC/DC - Shoot to Thrill",
-    "Guns N' Roses - Don't Cry",
-    "Queen - Bohemian Rhapsody",
-    "U2 - With or Without You",
-    "The Police - Every Breath You Take",
-    "Journey - Any Way You Want It",
-    "Toto - Stop Loving You",
-    "Billy Joel - My Life",
-    "George Michael - I Want Your Sex",
-    "The Clash - Rock the Casbah",
-    "David Bowie - Let's Dance",
-    "The Cure - Close to Me",
-    "Depeche Mode - Never Let Me Down Again",
-    "Eurythmics - Sweet Dreams (Are Made of This)",
-    "INXS - New Sensation",
-    "Blondie - Heart of Glass",
-    "Rick Astley - Together Forever",
-    "Van Halen - When It's Love",
-    "Simple Minds - Alive and Kicking",
-    "Europe - Carrie",
-    "A-ha - The Living Daylights",
-    "Pet Shop Boys - Always on My Mind",
-    "Michael Jackson - Smooth Criminal",
-    "Bon Jovi - Bad Medicine",
-    "Madonna - Express Yourself",
-    "Prince - Batdance",
-    "Whitney Houston - I'm Your Baby Tonight",
-    "Cyndi Lauper - Change of Heart",
-    "Survivor - Burning Heart",
-    "AC/DC - Back in Black",
-    "Guns N' Roses - Paradise City",
-    "Queen - Under Pressure",
-    "U2 - I Still Haven't Found What I'm Looking For",
-    "The Police - Message in a Bottle",
-    "Journey - Separate Ways (Worlds Apart)",
-    "Toto - Hold the Line",
-    "Billy Joel - Piano Man",
-    "George Michael - Father Figure",
-    "The Clash - Rock the Casbah",
-    "David Bowie - Modern Love",
-    "The Cure - Boys Don't Cry",
-    "Depeche Mode - Personal Jesus",
-    "Eurythmics - Love Is a Stranger",
-    "INXS - Never Tear Us Apart",
-    "Blondie - Rapture",
-    "Rick Astley - It Would Take a Strong Strong Man",
-    "Van Halen - Why Can't This Be Love",
-    "Simple Minds - Don't You Forget About Me",
-  ],
-  '90s': [
-      "Nirvana - Smells Like Teen Spirit",
-      "Backstreet Boys - I Want It That Way",
-      "Britney Spears - ...Baby One More Time",
-      "TLC - Waterfalls",
-      "Spice Girls - Wannabe",
-      // Add more 90s songs...
-  ],
-  '2000s': [
-      "Eminem - Lose Yourself",
-      "Beyoncé - Crazy in Love",
-      "Outkast - Hey Ya!",
-      "Usher - Yeah!",
-      "Green Day - Boulevard of Broken Dreams",
-      // Add more 2000s songs...
-  ],
-  '2010s': [
-      "Gotye - Somebody That I Used to Know",
-      "Lorde - Royals",
-      "Pharrell Williams - Happy",
-      "Adele - Rolling in the Deep",
-      "Ed Sheeran - Shape of You",
-      // Add more 2010s songs...
-  ],
-  '2020s': [
-      "The Weeknd - Blinding Lights",
-      "BTS - Dynamite",
-      "Dua Lipa - Don't Start Now",
-      "Cardi B - WAP",
-      "Billie Eilish - Bad Guy",
-      // Add more 2020s songs...
-  ],
-  'Rock': [
-      "Queen - Bohemian Rhapsody",
-      "Led Zeppelin - Stairway to Heaven",
-      "The Rolling Stones - (I Can't Get No) Satisfaction",
-      "Pink Floyd - Comfortably Numb",
-      "The Beatles - Hey Jude",
-      // Add more Rock songs...
-  ],
-  'Pop': [
-      "Michael Jackson - Thriller",
-      "Elton John - Candle in the Wind",
-      "Whitney Houston - I Will Always Love You",
-      "ABBA - Dancing Queen",
-      "Justin Timberlake - Cry Me a River",
-      // Add more Pop songs...
-  ],
-  'Hip Hop': [
-      "Tupac - California Love",
-      "The Notorious B.I.G. - Juicy",
-      "Jay-Z - Empire State of Mind",
-      "Eminem - Stan",
-      "Kanye West - Gold Digger",
-      // Add more Hip Hop songs...
-  ],
-  'R&B': [
-      "Marvin Gaye - Sexual Healing",
-      "Aretha Franklin - Respect",
-      "Stevie Wonder - Superstition",
-      "Beyoncé - Halo",
-      "Rihanna - Umbrella",
-      // Add more R&B songs...
-  ],
-  'Country': [
-      "Johnny Cash - Ring of Fire",
-      "Dolly Parton - Jolene",
-      "Willie Nelson - On the Road Again",
-      "Shania Twain - Man! I Feel Like a Woman!",
-      "Taylor Swift - Love Story",
-      // Add more Country songs...
-  ],
-  'Eletrônica': [
-      "Daft Punk - Around the World",
-      "Calvin Harris - This Is What You Came For",
-      "The Chemical Brothers - Block Rockin' Beats",
-      "David Guetta - Titanium",
-      "Skrillex - Bangarang",
-      // Add more Eletrônica songs...
-  ],
-  'Jazz': [
-      "Miles Davis - So What",
-      "John Coltrane - Giant Steps",
-      "Ella Fitzgerald - Summertime",
-      "Louis Armstrong - What a Wonderful World",
-      "Nina Simone - Feeling Good",
-      // Add more Jazz songs...
-  ],
-  'Clássica': [
-      "Ludwig van Beethoven - Symphony No. 9",
-      "Johann Sebastian Bach - Toccata and Fugue in D Minor",
-      "Wolfgang Amadeus Mozart - Requiem",
-      "Pyotr Ilyich Tchaikovsky - Swan Lake",
-      "Antonio Vivaldi - The Four Seasons",
-      // Add more Clássica songs...
-  ],
-  'Reggae': [
-      "Bob Marley - No Woman, No Cry",
-      "Jimmy Cliff - Many Rivers to Cross",
-      "Toots and the Maytals - Pressure Drop",
-      "Peter Tosh - Legalize It",
-      "UB40 - Red Red Wine",
-      // Add more Reggae songs...
-  ],
-  'Samba': [
-      "Cartola - As Rosas Não Falam",
-      "Clara Nunes - A Deusa dos Orixás",
-      "Paulinho da Viola - Foi um Rio que Passou em Minha Vida",
-      "Beth Carvalho - Coisinha do Pai",
-      "Zeca Pagodinho - Deixa a Vida Me Levar",
-      // Add more Samba songs...
-  ],
-  'Bossa Nova': [
-      "João Gilberto - Chega de Saudade",
-      "Tom Jobim - Garota de Ipanema",
-      "Vinícius de Moraes - Desafinado",
-      "Elis Regina - Águas de Março",
-      "Caetano Veloso - Samba de Verão",
-      // Add more Bossa Nova songs...
-  ],
-  'Forró': [
-      "Luiz Gonzaga - Asa Branca",
-      "Dominguinhos - Isso Aqui Tá Bom Demais",
-      "Elba Ramalho - De Volta Pro Aconchego",
-      "Alceu Valença - Anjo Avesso",
-      "Falamansa - Xote dos Milagres",
-      // Add more Forró songs...
-  ],
-  'Funk Carioca': [
-      "MC Marcinho - Rap do Solitário",
-      "Claudinho & Buchecha - Quero Te Encontrar",
-      "Anitta - Show das Poderosas",
-      "MC Kevinho - Olha a Explosão",
-      "Ludmilla - Verdinha",
-      // Add more Funk Carioca songs...
-  ],
-  'Axé': [
-      "Ivete Sangalo - Festa",
-      "Daniela Mercury - O Canto da Cidade",
-      "Banda Eva - Beleza Rara",
-      "Chiclete com Banana - Voa Voa",
-      "Asa de Águia - Dia dos Namorados",
-      // Add more Axé songs...
-  ],
-  'Sertanejo 80s': [
-      "Chitãozinho & Xororó - Fio de Cabelo",
-      "Leandro & Leonardo - Pense em Mim",
-      "Gian & Giovani - Nem Dormindo Consigo te Esquecer",
-      "Rio Negro & Solimões - De São Paulo a Belém",
-      "João Paulo & Daniel - Estou Apaixonado",
-      // Add more Sertanejo 80s songs...
-  ],
-  'Sertanejo 90s': [
-      "Zezé Di Camargo & Luciano - É o Amor",
-      "Daniel - Adoro Amar Você",
-      "Chrystian & Ralf - Nova York",
-      "Leandro & Leonardo - Sonho Por Sonho",
-      "João Paulo & Daniel - Só Dá Você na Minha Vida",
-      // Add more Sertanejo 90s songs...
-  ],
-  'Frevo': [
-      "Alceu Valença - Frevo Mulher",
-      "Antônio Nóbrega - Vassourinhas",
-      "Spok Frevo Orquestra - Aconteceu",
-      "Fafá de Belém - Último Regresso",
-      "Lenine - O Último Pôr do Sol",
-      // Add more Frevo songs...
-  ],
-  'Forró Pé de Serra': [
-      "Jackson do Pandeiro - Sebastiana",
-      "Luiz Gonzaga - Baião",
-      "Dominguinhos - De Volta Pro Aconchego",
-      "Elba Ramalho - Anjo Avesso",
-      "Falamansa - Xote dos Milagres",
-      // Add more Forró Pé de Serra songs...
-  ],
-  'Surpresa': [
-      // Surprise songs...
-  ],
+const songsByButton = {
+    "Anos 70": ["Construção - Chico Buarque", "Aquarela do Brasil - Ary Barroso", "Asa Branca - Luiz Gonzaga", "Garota de Ipanema - Tom Jobim e Vinicius de Moraes", "Acorda Amor - Chico Buarque", "Como Nossos Pais - Belchior", "Alegria, Alegria - Caetano Veloso", "Corsário - João Bosco e Aldir Blanc", "Apesar de Você - Chico Buarque", "Ouro de Tolo - Raul Seixas", "Roda Viva - Chico Buarque", "Ponta de Lança Africano (Umbabarauma) - Jorge Ben Jor", "Canto de Ossanha - Baden Powell e Vinicius de Moraes", "Cálice - Chico Buarque e Gilberto Gil", "Valsinha - Chico Buarque e Vinicius de Moraes", "Wave - Tom Jobim", "Atrás da Porta - Elis Regina e Chico Buarque", "Rancho da Goiabada - Ary Barroso", "Foi Um Rio Que Passou em Minha Vida - Paulinho da Viola", "O Bêbado e a Equilibrista - João Bosco e Aldir Blanc", "Tropicália - Caetano Veloso", "Carinhoso - Pixinguinha", "Casa no Campo - Elis Regina", "O Trem Azul - Lô Borges e Ronaldo Bastos", "O Que É O Que É? - Gonzaguinha", "Águas de Março - Elis Regina e Tom Jobim", "Sá Marina - Wilson Simonal", "Táxi Lunar - Os Mutantes", "Saudosa Maloca - Adoniran Barbosa", "Canto de Ossanha - Baden Powell e Vinicius de Moraes", "Bebete Vãobora - Novos Baianos", "Eu Te Amo, Meu Brasil - Dom e Ravel", "Pérola Negra - Luiz Melodia", "Sobradinho - Sá & Guarabyra", "Ando Meio Desligado - Os Mutantes", "Eu Amo Você - Tim Maia", "Chove Chuva - Jorge Ben Jor", "Manuel - Rita Lee", "O Vira - Secos & Molhados", "Alô, Alô, Marciano - Rita Lee e Roberto de Carvalho", "Samba da Minha Terra - Dorival Caymmi", "É com esse que eu vou - Geraldo Vandré", "A Banda - Chico Buarque", "Chão de Giz - Zé Ramalho", "Caça à Raposa - Beto Guedes e Ronaldo Bastos", "Canto das Três Raças - Clara Nunes", "Alegria, Alegria - Caetano Veloso", "Comportamento Geral - Gonzaguinha", "Bohemian Rhapsody - Queen", "Stairway to Heaven - Led Zeppelin", "Hotel California - Eagles", "Imagine - John Lennon", "Another Brick in the Wall - Pink Floyd", "American Pie - Don McLean", "Stayin' Alive - Bee Gees", "Sweet Home Alabama - Lynyrd Skynyrd", "Let It Be - The Beatles", "Smells Like Teen Spirit - Nirvana", "Dream On - Aerosmith", "Wish You Were Here - Pink Floyd", "Layla - Derek and the Dominos", "Blowin' in the Wind - Bob Dylan", "You're the One That I Want - John Travolta and Olivia Newton-John", "I Will Always Love You - Whitney Houston", "Killing Me Softly With His Song - Roberta Flack", "Brown Sugar - The Rolling Stones", "Don't Stop 'Til You Get Enough - Michael Jackson", "Hotel California - Eagles", "Dancing Queen - ABBA", "Hey Jude - The Beatles", "Let's Stay Together - Al Green", "Piano Man - Billy Joel", "Le Freak - Chic", "I Want to Hold Your Hand - The Beatles", "Black Dog - Led Zeppelin", "We Will Rock You - Queen", "The Joker - Steve Miller Band", "Rocket Man - Elton John", "Wonderful Tonight - Eric Clapton", "Born to Run - Bruce Springsteen", "Stayin' Alive - Bee Gees", "My Sweet Lord - George Harrison", "Heart of Gold - Neil Young", "Boogie Wonderland - Earth, Wind & Fire", "September - Earth, Wind & Fire", "Born to Be Wild - Steppenwolf", "You're So Vain - Carly Simon", "Sultans of Swing - Dire Straits", "Roxanne - The Police", "Brown Eyed Girl - Van Morrison", "Space Oddity - David Bowie", "I Shot the Sheriff - Eric Clapton", "ABC - The Jackson 5", "Help! - The Beatles", "Go Your Own Way - Fleetwood Mac", "Bridge Over Troubled Water - Simon & Garfunkel",],
+    "Anos 80": ["Garota de Ipanema - Tom Jobim e Vinícius de Moraes", "Me Chama - Lobão", "Óculos - Paralamas do Sucesso", "Menina Veneno - Ritchie", "Fogo e Paixão - Wando", "Sonífera Ilha - Titãs", "Descobridor dos Sete Mares - Tim Maia", "Meu Erro - Os Paralamas do Sucesso", "Como uma Onda - Lulu Santos", "Todo Azul do Mar - 14 Bis", "Inútil - Ultraje a Rigor", "Catedral - Zélia Duncan", "Vamos Fugir - Skank", "Pintura Íntima - Kid Abelha", "Flores - Titãs", "Amor Perfeito - Roberto Carlos", "Brasil - Cazuza", "Cheia de Manias - Raça Negra", "Nada Sei - Kid Abelha", "Exagerado - Cazuza", "O Descobridor dos Sete Mares - Tim Maia", "Lanterna dos Afogados - Paralamas do Sucesso", "Será - Legião Urbana", "Garotos - Leoni", "A Fórmula do Amor - Léo Jaime", "Ainda É Cedo - Legião Urbana", "Perdidos na Selva - Kid Abelha", "Eu Preciso Dizer que te Amo - Cazuza", "Maracatu Atômico - Chico Science e Nação Zumbi", "Ovelha Negra - Rita Lee", "Inútil - Ultraje a Rigor", "A Carne - Elza Soares", "Lágrimas e Chuva - Kid Abelha", "Um Certo Alguém - Lulu Santos", "A Vida Tem Dessas Coisas - Ritchie", "Por Você - Barão Vermelho", "Pro Dia Nascer Feliz - Barão Vermelho", "Coração Pirata - Roupa Nova", "Bete Balanço - Cazuza", "Garoto Nacional - Paralamas do Sucesso", "Por Enquanto - Renato Russo", "Maior Abandonado - Barão Vermelho", "Planeta Água - Guilherme Arantes", "Louras Geladas - RPM", "Você Não Soube Me Amar - Blitz", "Meu Mundo e Nada Mais - Guilherme Arantes", "Menina - Lulu Santos", "Cheia de Charme - Guilherme Arantes", "A Estrada - Cidade Negra","Billie Jean - Michael Jackson", "Like a Virgin - Madonna", "Every Breath You Take - The Police", "Sweet Child o' Mine - Guns N' Roses", "Livin' on a Prayer - Bon Jovi", "Take On Me - a-ha", "I Wanna Dance with Somebody (Who Loves Me) - Whitney Houston", "Don't Stop Believin' - Journey", "Thriller - Michael Jackson", "Walk Like an Egyptian - The Bangles", "Material Girl - Madonna", "With or Without You - U2", "Tainted Love - Soft Cell", "Another One Bites the Dust - Queen", "Beat It - Michael Jackson", "Sweet Dreams (Are Made of This) - Eurythmics", "I Want to Know What Love Is - Foreigner", "Africa - Toto", "Girls Just Want to Have Fun - Cyndi Lauper", "Careless Whisper - George Michael", "Don't You (Forget About Me) - Simple Minds", "True - Spandau Ballet", "Time After Time - Cyndi Lauper", "Eye of the Tiger - Survivor", "Total Eclipse of the Heart - Bonnie Tyler", "Everywhere - Fleetwood Mac", "Hungry Like the Wolf - Duran Duran", "Footloose - Kenny Loggins", "Love Will Tear Us Apart - Joy Division", "Money for Nothing - Dire Straits", "Heaven is a Place on Earth - Belinda Carlisle", "Come On Eileen - Dexys Midnight Runners", "I Ran (So Far Away) - A Flock of Seagulls", "Don't You Want Me - The Human League", "Never Gonna Give You Up - Rick Astley", "The Final Countdown - Europe", "Everybody Wants to Rule the World - Tears for Fears", "It's Raining Men - The Weather Girls", "Walking on Sunshine - Katrina and the Waves", "Jump - Van Halen", "Here I Go Again - Whitesnake", "I Love Rock 'n Roll - Joan Jett & The Blackhearts", "We Are the World - USA for Africa", "Ghostbusters - Ray Parker Jr.", "Karma Chameleon - Culture Club", "Under Pressure - Queen & David Bowie", "Jessie's Girl - Rick Springfield", "Faith - George Michael", "My Sharona - The Knack",],
+    "Anos 90": ["É o Tchan - Segure o Tchan", "Mamonas Assassinas - Pelados em Santos", "É o Tchan - Dança da Cordinha", "Só Pra Contrariar - Depois do Prazer", "Mamonas Assassinas - Vira-Vira", "É o Tchan - É o Tchan no Hawaii", "Só Pra Contrariar - Mineirinho", "Mamonas Assassinas - Robocop Gay", "É o Tchan - Rebola", "Só Pra Contrariar - Essa Tal Liberdade", "Mamonas Assassinas - Mundo Animal", "É o Tchan - Dança do Bumbum", "Só Pra Contrariar - Você Virou Saudade", "Mamonas Assassinas - Chopis Centis", "É o Tchan - Pau Que Nasce Torto", "Só Pra Contrariar - Domingo", "Mamonas Assassinas - 1406", "É o Tchan - A Dança do Bumbum", "Só Pra Contrariar - Você de Volta", "É o Tchan - Dança do Põe Põe", "Mamonas Assassinas - Sabão Crá Crá", "É o Tchan - O Papa é Pop", "Só Pra Contrariar - A Barata", "É o Tchan - Na Boquinha da Garrafa", "Mamonas Assassinas - Lá Vem o Alemão", "É o Tchan - Tic Tic Tac", "Só Pra Contrariar - Essa Tal Liberdade", "Mamonas Assassinas - Uma Arlinda Mulher", "É o Tchan - É o Tchan", "Só Pra Contrariar - Mineirinho", "Mamonas Assassinas - Sabão Crá Crá", "É o Tchan - A Dança do Bumbum", "Só Pra Contrariar - Você de Volta", "Mamonas Assassinas - 1406", "É o Tchan - Dança do Põe Põe", "Só Pra Contrariar - A Barata", "Mamonas Assassinas - Lá Vem o Alemão", "É o Tchan - Tic Tic Tac", "Só Pra Contrariar - Essa Tal Liberdade", "Mamonas Assassinas - Uma Arlinda Mulher", "É o Tchan - É o Tchan", "Só Pra Contrariar - Mineirinho", "Mamonas Assassinas - Sabão Crá Crá", "É o Tchan - A Dança do Bumbum", "Só Pra Contrariar - Você de Volta", "Mamonas Assassinas - 1406", "É o Tchan - Dança do Põe Põe", "Só Pra Contrariar - A Barata", "Mamonas Assassinas - Lá Vem o Alemão", "É o Tchan - Tic Tic Tac", "Só Pra Contrariar - Essa Tal Liberdade", "Mamonas Assassinas - Uma Arlinda Mulher","Nirvana - Smells Like Teen Spirit", "Britney Spears - ...Baby One More Time", "Backstreet Boys - I Want It That Way", "Whitney Houston - I Will Always Love You", "Spice Girls - Wannabe", "R.E.M. - Losing My Religion", "Alanis Morissette - Ironic", "TLC - Waterfalls", "Mariah Carey - Fantasy", "Hanson - MMMBop", "Oasis - Wonderwall", "Metallica - Enter Sandman", "The Fugees - Killing Me Softly", "Celine Dion - My Heart Will Go On", "No Doubt - Don't Speak", "Destiny's Child - Say My Name", "Madonna - Vogue", "Green Day - Basket Case", "Radiohead - Creep", "Tupac Shakur - California Love", "En Vogue - My Lovin' (You're Never Gonna Get It)", "Ace of Base - The Sign", "Blur - Song 2", "Smash Mouth - All Star", "The Notorious B.I.G. - Mo Money Mo Problems", "Nirvana - Come as You Are", "Red Hot Chili Peppers - Under the Bridge", "Dr. Dre - Nuthin' But a 'G' Thang", "Guns N' Roses - November Rain", "Snoop Dogg - Gin and Juice", "Sheryl Crow - All I Wanna Do", "Beck - Loser", "Pearl Jam - Jeremy", "Mariah Carey - Always Be My Baby", "U2 - One", "Shania Twain - Man! I Feel Like a Woman!", "2Pac - Changes", "Goo Goo Dolls - Iris", "Vanilla Ice - Ice Ice Baby", "Beastie Boys - Sabotage", "Fugees - Ready or Not", "Salt-N-Pepa - Shoop", "Nirvana - Lithium", "Coolio - Gangsta's Paradise", "MC Hammer - U Can't Touch This", "Savage Garden - Truly Madly Deeply", "Bon Jovi - Always", "George Michael - Freedom! '90", "Ricky Martin - Livin' la Vida Loca",],
+    "Anos 00": ["Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park", "Stacy's Mom - Fountains of Wayne", "Where is the Love? - The Black Eyed Peas", "Hey Ya! - OutKast", "How You Remind Me - Nickelback", "Without Me - Eminem", "One More Time - Daft Punk", "Toxic - Britney Spears", "Dilemma - Nelly ft. Kelly Rowland", "Can't Get You Out of My Head - Kylie Minogue", "Underneath It All - No Doubt", "Whenever, Wherever - Shakira", "Beautiful - Christina Aguilera", "Hot in Herre - Nelly", "A Thousand Miles - Vanessa Carlton", "Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park", "Stacy's Mom - Fountains of Wayne", "Where is the Love? - The Black Eyed Peas", "Hey Ya! - OutKast", "How You Remind Me - Nickelback", "Without Me - Eminem", "One More Time - Daft Punk", "Toxic - Britney Spears", "Dilemma - Nelly ft. Kelly Rowland", "Can't Get You Out of My Head - Kylie Minogue", "Underneath It All - No Doubt", "Whenever, Wherever - Shakira", "Beautiful - Christina Aguilera", "Hot in Herre - Nelly", "A Thousand Miles - Vanessa Carlton", "Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park", "Stacy's Mom - Fountains of Wayne","Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park", "Stacy's Mom - Fountains of Wayne", "Where is the Love? - The Black Eyed Peas", "Hey Ya! - OutKast", "How You Remind Me - Nickelback", "Without Me - Eminem", "One More Time - Daft Punk", "Toxic - Britney Spears", "Dilemma - Nelly ft. Kelly Rowland", "Can't Get You Out of My Head - Kylie Minogue", "Underneath It All - No Doubt", "Whenever, Wherever - Shakira", "Beautiful - Christina Aguilera", "Hot in Herre - Nelly", "A Thousand Miles - Vanessa Carlton", "Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park", "Stacy's Mom - Fountains of Wayne", "Where is the Love? - The Black Eyed Peas", "Hey Ya! - OutKast", "How You Remind Me - Nickelback", "Without Me - Eminem", "One More Time - Daft Punk", "Toxic - Britney Spears", "Dilemma - Nelly ft. Kelly Rowland", "Can't Get You Out of My Head - Kylie Minogue", "Underneath It All - No Doubt", "Whenever, Wherever - Shakira", "Beautiful - Christina Aguilera", "Hot in Herre - Nelly", "A Thousand Miles - Vanessa Carlton", "Complicated - Avril Lavigne", "In The End - Linkin Park", "Sk8er Boi - Avril Lavigne", "The Scientist - Coldplay", "Bring Me to Life - Evanescence", "By The Way - Red Hot Chili Peppers", "Clocks - Coldplay", "Numb - Linkin Park"],
+    "Anos 2010": ["Ai Se Eu Te Pego - Michel Teló", "Camaro Amarelo - Munhoz & Mariano", "Rebolation - Parangolé", "Largadinho - Claudia Leitte", "Amor de Chocolate - Naldo", "Show das Poderosas - Anitta", "Cê Topa? - Luan Santana", "Lepo Lepo - Psirico", "Vida de Empreguete - Empreguetes", "Meiga e Abusada - Anitta", "Vai Malandra - Anitta", "Bang - Anitta", "O Sol - Vitor Kley", "Quando Deus Quer - Lucas Lucco", "Nega - Luan Santana", "Ai Se Eu Te Pego - Michel Teló", "Camaro Amarelo - Munhoz & Mariano", "Rebolation - Parangolé", "Largadinho - Claudia Leitte", "Amor de Chocolate - Naldo", "Show das Poderosas - Anitta", "Cê Topa? - Luan Santana", "Lepo Lepo - Psirico", "Vida de Empreguete - Empreguetes", "Meiga e Abusada - Anitta", "Vai Malandra - Anitta", "Bang - Anitta", "O Sol - Vitor Kley", "Quando Deus Quer - Lucas Lucco", "Nega - Luan Santana", "Ai Se Eu Te Pego - Michel Teló", "Camaro Amarelo - Munhoz & Mariano", "Rebolation - Parangolé", "Largadinho - Claudia Leitte", "Amor de Chocolate - Naldo", "Show das Poderosas - Anitta", "Cê Topa? - Luan Santana", "Lepo Lepo - Psirico", "Vida de Empreguete - Empreguetes", "Meiga e Abusada - Anitta", "Vai Malandra - Anitta", "Bang - Anitta", "O Sol - Vitor Kley", "Quando Deus Quer - Lucas Lucco", "Nega - Luan Santana","Rolling in the Deep - Adele", "Somebody That I Used to Know - Gotye ft. Kimbra", "Uptown Funk - Mark Ronson ft. Bruno Mars", "Shape of You - Ed Sheeran", "Despacito - Luis Fonsi ft. Daddy Yankee", "Happy - Pharrell Williams", "Gangnam Style - PSY", "Roar - Katy Perry", "Thinking Out Loud - Ed Sheeran", "Closer - The Chainsmokers ft. Halsey", "All of Me - John Legend", "Can't Stop the Feeling! - Justin Timberlake", "Sorry - Justin Bieber", "Blank Space - Taylor Swift", "Love Yourself - Justin Bieber", "Shake It Off - Taylor Swift", "See You Again - Wiz Khalifa ft. Charlie Puth", "Dark Horse - Katy Perry ft. Juicy J", "Counting Stars - OneRepublic", "Cheap Thrills - Sia ft. Sean Paul", "Radioactive - Imagine Dragons", "Shut Up and Dance - WALK THE MOON", "Let Her Go - Passenger", "Cheerleader - OMI", "Havana - Camila Cabello ft. Young Thug", "Take Me to Church - Hozier", "Hello - Adele", "Hips Don't Lie - Shakira ft. Wyclef Jean", "We Found Love - Rihanna ft. Calvin Harris", "Someone Like You - Adele", "Firework - Katy Perry", "Call Me Maybe - Carly Rae Jepsen", "Rather Be - Clean Bandit ft. Jess Glynne", "Thrift Shop - Macklemore & Ryan Lewis ft. Wanz", "Love Me Like You Do - Ellie Goulding", "Bad Guy - Billie Eilish", "The Hills - The Weeknd", "Hotline Bling - Drake", "Can't Hold Us - Macklemore & Ryan Lewis ft. Ray Dalton", "Wake Me Up! - Avicii", "Fancy - Iggy Azalea ft. Charli XCX", "Sicko Mode - Travis Scott", "Happier - Marshmello ft. Bastille", "Old Town Road - Lil Nas X ft. Billy Ray Cyrus", "What Do You Mean? - Justin Bieber", "Believer - Imagine Dragons", "Blank Space - Taylor Swift", "Stressed Out - Twenty One Pilots", "Stronger - Kanye West", "Rude - MAGIC!"],
+    "Anos 2020": ["Liberdade Provisória - Henrique & Juliano", "A Gente Fez Amor - Gusttavo Lima", "Litrão - Matheus & Kauan", "Volta Bebê, Volta Neném - Henrique & Juliano", "Amor da Despedida - Gustavo Mioto", "Volta Por Baixo - Henrique & Juliano", "S de Saudade - Luíza & Maurílio ft. Zé Neto & Cristiano", "Com ou Sem Mim - Gustavo Mioto", "Graveto - Marília Mendonça", "Cheirosa - Jorge & Mateus", "Barzinho Aleatório - Zé Neto & Cristiano", "Beijo de Autoajuda - Felipe Araújo", "Coração Infectado - Maiara & Maraisa", "Aí Eu Bebo - Maiara & Maraisa ft. Jorge & Mateus", "Café e Amor - Luan Santana", "De Menina Pra Mulher - Gustavo Mioto", "Surto de Amor - Bruno & Marrone ft. Jorge & Mateus", "Cobaia - Lauana Prado", "Aquelas Coisas - Wesley Safadão", "Até Você Voltar - Henrique & Juliano", "Aham - Lucas Lucco", "Ele Não Tem - Marília Mendonça", "Despedida - Wesley Safadão ft. Pacheco", "Com ou Sem Mim - Zé Neto & Cristiano", "Chora Viola - Eduardo Costa", "Bebida e Fumaça - Bruno & Marrone ft. Wesley Safadão", "Arco-Íris - Tiago Iorc", "A Gente Fez Amor - Zezé Di Camargo & Luciano", "Quem Traiu Levou - Gusttavo Lima", "Rita - Tierry", "Se Vira Aí - Vitor Fernandes", "Batom de Cereja - Israel & Rodolffo", "Troca de Favor - Jorge & Mateus ft. Maiara & Maraisa", "Troca de Calçada - Jorge & Mateus", "Nunca Foi Sorte, Sempre Foi Deus - Simone & Simaria", "Numa Maldade - Ferrugem ft. Zé Neto & Cristiano", "Menos é Mais - Luíza & Maurílio", "Eu Tô Sabendo - Maiara & Maraisa", "Cheiro de Sexta - Luan Santana", "Vizinho Chato - Maiara & Maraisa", "Só Mais uma Vez - Henrique & Juliano", "Diz pra Ele - Matheus & Kauan ft. Gusttavo Lima", "Com ou Sem Mim - Gustavo Mioto ft. Xand Avião", "Cuidado Que Eu Te Supero - Fernando & Sorocaba", "Bora Tomar uma? - Luíza & Maurílio ft. Maiara & Maraisa", "Deprê - Marília Mendonça", "Doce Menina - João Gomes", "Balada do Buteco - Matheus & Kauan", "Bilhetim - Felipe Araújo","Blinding Lights - The Weeknd", "Dance Monkey - Tones and I", "Don't Start Now - Dua Lipa", "Shape of You - Ed Sheeran", "Rockstar - DaBaby ft. Roddy Ricch", "Circles - Post Malone", "Someone You Loved - Lewis Capaldi", "Savage Love (Laxed - Siren Beat) - Jawsh 685, Jason Derulo", "Mood - 24kGoldn ft. Iann Dior", "Rain On Me - Lady Gaga, Ariana Grande", "The Box - Roddy Ricch", "Physical - Dua Lipa", "Watermelon Sugar - Harry Styles", "Life Goes On - BTS", "Say So - Doja Cat", "WAP - Cardi B ft. Megan Thee Stallion", "Break My Heart - Dua Lipa", "Memories - Maroon 5", "Levitating - Dua Lipa ft. DaBaby", "Roses (Imanbek Remix) - SAINt JHN", "Before You Go - Lewis Capaldi", "Intentions - Justin Bieber ft. Quavo", "I Hope - Gabby Barrett ft. Charlie Puth", "The Bones - Maren Morris", "Kings & Queens - Ava Max", "Blueberry Faygo - Lil Mosey", "Falling - Trevor Daniel", "Everything I Wanted - Billie Eilish", "Sucker - Jonas Brothers", "Break Up Song - Little Mix", "Dynamite - BTS", "SAY YOU WON'T LET GO - James Arthur", "Bad Guy - Billie Eilish", "RITMO (Bad Boys for Life) - The Black Eyed Peas, J Balvin", "Roses - SAINt JHN", "Life Is Good - Future ft. Drake", "Stuck with U - Ariana Grande, Justin Bieber", "Wishing Well - Juice WRLD", "I Don't Care - Ed Sheeran, Justin Bieber", "Midnight Sky - Miley Cyrus", "Savage - Megan Thee Stallion", "Lose You to Love Me - Selena Gomez", "Don't Call Me Angel - Ariana Grande, Miley Cyrus, Lana Del Rey", "ROXANNE - Arizona Zervas", "Come & Go - Juice WRLD, Marshmello", "GOOBA - 6ix9ine", "Adore You - Harry Styles", "Dákiti - Bad Bunny, Jhay Cortez", "Toosie Slide - Drake", "Yummy - Justin Bieber"],
+    Surpresa: ["Chiclete Com Banana - Gordurinha", "A Banda - Chico Buarque", "Bebida Liberada - Banda Djavú", "Eu Quero Tchu, Eu Quero Tcha - João Lucas e Marcelo", "Vira-Vira - Mamonas Assassinas", "Dona Maria - Thiago Brava ft. Jorge", "Pau Que Nasce Torto - É Que Se Endireita - Mastruz Com Leite", "Minha Sogra é um Boi - Aviões do Forró", "Melô do Piripipi - Furacão 2000", "Rebolation - Parangolé", "O Vira - Secos & Molhados", "A Jardineira - Orlando Silva", "Deu Onda - MC G15", "Iveteira - Saiddy Bamba", "Marcha do Remador - Banda dos Fuzileiros Navais", "Trololo Song - Eduard Khil", "Festa no Apê - Latino", "Bebendo Vinho - Os Canibais", "Senta em Mim Xerecão - Bonde do Tigrão", "Ragatanga - Rouge", "Ursinho Blau Blau - Trem da Alegria", "Conga, Conga, Conga - Gretchen", "Voa, Voa, Brabuleta - Reginaldo Rossi", "A Dança do Siri - Banda Sayonara", "Os Dedinhos - Eliana", "Ilariê - Xuxa", "Cerol na Mão - Bonde do Tigrão", "Robocop Gay - Mamonas Assassinas", "Ai, Ai, Ui, Ui - As Meninas", "Dança da Cordinha - É o Tchan", "Eguinha Pocotó - MC Serginho", "Eu Sou o Gummy Bear - Gummy Bear", "Festa na Baranga - As Meninas", "La Vem o Negão - Tribo do Funk", "Melo do Tchan - É o Tchan", "O Simpático - Marquinhos Satã", "Ratinho Tomando Banho - Ratinho", "Sou Boy - Ultraje a Rigor", "Sushi da Menininha - João Brasil", "Tapa Aqui, Descobre Ali - É o Tchan", "Tô de Férias - Shampoo", "Toda Trabalhada na Beleza - Mulher File", "Todo Mundo - Leandro Lins", "Uh Tererê - As Meninas", "Xuxuzinho - As Meninas", "Ziguiriguidum - As Meninas", "Ziriguidum - Filhos de Jorge", "Bebum da Sanfona - Zé Vaqueiro", "Mamarre - Dada Boladão","Bixa USB - Rey Biannchi"],
+    Rock: [],
+    Pop: [],
+    "Hip Hop": [],
+    "R&B": [],
+    Country: [],
+    Eletrônica: [],
+    Jazz: [],
+    Reggae: [],
+    Gay: [],
+    "Pop Rock": [],
+    Samba: [],
+    "Bossa Nova": [],
+    Forró: [],
+    "Funk Carioca": [],
+    Axé: [],
+    "Sertanejo 80s": [],
+    "Sertanejo 90s": [],
+    "Sertanejo 00": [],
+    Frevo: [],
+    "Forró Pé de Serra": [],
 };
 
-function selectRandomSong(genre) {
-  const songs = topSongsByDecade[genre];
-  if (!songs || songs.length === 0) {
-      alert('Nenhuma música disponível para este gênero');
-      return;
-  }
+const buttons = document.querySelectorAll(".toggle-btn");
 
-  // Randomly select a song index
-  const randomIndex = Math.floor(Math.random() * songs.length);
-  const selectedSong = songs[randomIndex];
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // Toggle the selected class for the clicked button
+        buttons.forEach((btn) => {
+            btn.classList.remove("selected");
+        });
+        button.classList.add("selected");
 
-  // Display the selected song
-  document.getElementById('selectedSong').innerHTML = `<div>${selectedSong}</div>`;
+        // Get the corresponding songs for the clicked button
+        const buttonName = button.textContent.trim();
+        const songs = songsByButton[buttonName];
 
-  // Show loading spinner
-  document.getElementById('loading').style.display = 'block';
+        // Randomly select one song
+        const randomIndex = Math.floor(Math.random() * songs.length);
 
-  // Open a new window with YouTube search for the selected song + karaoke after 3 seconds
-  setTimeout(() => {
-      const searchQuery = encodeURIComponent(selectedSong + ' karaoke');
-      window.open('https://www.youtube.com/results?search_query=' + searchQuery);
-      // Hide loading spinner after opening the YouTube search
-      document.getElementById('loading').style.display = 'none';
-  }, 3000);
-}
+        // Display the selected song at the top
+        const selectedSong = songs[randomIndex];
+        const selectedSongLink = document.getElementById("selectedSong");
+        selectedSongLink.textContent = selectedSong;
+        setTimeout(() => {
+            const searchQuery = encodeURIComponent(selectedSong + " karaoke");
+            const youtubeURL = `https://www.youtube.com/results?search_query=${searchQuery}`;
+            window.open(youtubeURL, "_blank");
+        }, 3000);
+
+        // Scroll to the top of the page
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Smooth scrolling effect
+        });
+    });
+});

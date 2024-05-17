@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seletor de Música Aleatória</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
+    <title>Karaokeijo 🧀🐀</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <div class="container">
-      <h1>Seletor de Música Aleatória</h1>
-      <div>
-        <button onclick="selectRandomSong('80s')">Anos 80</button>
-        <button onclick="selectRandomSong('90s')">Anos 90</button>
-        <button onclick="selectRandomSong('2000s')">Anos 2000</button>
-        <button onclick="selectRandomSong('2010s')">Anos 2010</button>
-        <button onclick="selectRandomSong('2020s')">Anos 2020</button>
-        <button onclick="selectRandomSong('Surpresa')">Surpresa</button>
-      </div>
-      <h2>Gêneros</h2>
-      <div>
-        <button onclick="selectRandomSong('Rock')">Rock</button>
-        <button onclick="selectRandomSong('Pop')">Pop</button>
-        <button onclick="selectRandomSong('Hip Hop')">Hip Hop</button>
-        <button onclick="selectRandomSong('R&B')">R&B</button>
-        <button onclick="selectRandomSong('Country')">Country</button>
-        <button onclick="selectRandomSong('Eletrônica')">Eletrônica</button>
-        <button onclick="selectRandomSong('Jazz')">Jazz</button>
-        <button onclick="selectRandomSong('Clássica')">Clássica</button>
-        <button onclick="selectRandomSong('Reggae')">Reggae</button>
-        <button onclick="selectRandomSong('Metal')">Metal</button>
-      </div>
-      <h2>Gêneros Brasileiros</h2>
-      <div>
-        <button onclick="selectRandomSong('Samba')">Samba</button>
-        <button onclick="selectRandomSong('Bossa Nova')">Bossa Nova</button>
-        <button onclick="selectRandomSong('Forró')">Forró</button>
-        <button onclick="selectRandomSong('Funk Carioca')">Funk Carioca</button>
-        <button onclick="selectRandomSong('Axé')">Axé</button>
-        <button onclick="selectRandomSong('Sertanejo 80s')">
-          Sertanejo 80s
-        </button>
-        <button onclick="selectRandomSong('Sertanejo 90s')">
-          Sertanejo 90s
-        </button>
-        <button onclick="selectRandomSong('Frevo')">Frevo</button>
-        <button onclick="selectRandomSong('Forró Pé de Serra')">
-          Forró Pé de Serra
-        </button>
-      </div>
-      <div id="selectedSong"></div>
-      <div id="loading">
-        <div class="spinner"></div>
-      </div>
+        <h1>Karaokeijo 🧀🐀</h1>
+        <h2 id="selectedSong"></h2>
+        <div>
+            <button class="toggle-btn">Anos 70</button>
+            <button class="toggle-btn">Anos 80</button>
+            <button class="toggle-btn">Anos 90</button>
+            <button class="toggle-btn">Anos 00</button>
+            <button class="toggle-btn">Anos 2010</button>
+            <button class="toggle-btn">Anos 2020</button>
+            <button class="toggle-btn">Surpresa</button>
+        </div>
+        <h2>Gêneros</h2>
+        <div>
+            <button class="toggle-btn">Rock</button>
+            <button class="toggle-btn">Pop</button>
+            <button class="toggle-btn">Hip Hop</button>
+            <button class="toggle-btn">R&B</button>
+            <button class="toggle-btn">Country</button>
+            <button class="toggle-btn">Eletrônica</button>
+            <button class="toggle-btn">Jazz</button>
+            <button class="toggle-btn">Reggae</button>
+            <button class="toggle-btn">Gay</button>
+        </div>
+        <h2>Gêneros Brasileiros</h2>
+        <div>
+            <button class="toggle-btn">Rock</button>
+            <button class="toggle-btn">Pop Rock</button>
+            <button class="toggle-btn">Samba</button>
+            <button class="toggle-btn">Bossa Nova</button>
+            <button class="toggle-btn">Forró</button>
+            <button class="toggle-btn">Funk Carioca</button>
+            <button class="toggle-btn">Axé</button>
+            <button class="toggle-btn">Sertanejo 80s</button>
+            <button class="toggle-btn">Sertanejo 90s</button>
+            <button class="toggle-btn">Sertanejo 00</button>
+            <button class="toggle-btn">Frevo</button>
+            <button class="toggle-btn">Forró Pé de Serra</button>
+        </div>
+        <div id="loading">
+            <div class="spinner"></div>
+        </div>
     </div>
-
     <script src="scripts.js"></script>
-  </body>
+</body>
 </html>
